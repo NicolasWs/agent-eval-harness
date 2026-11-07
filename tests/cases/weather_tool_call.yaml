@@ -1,0 +1,12 @@
+id: weather_tool_call
+prompt: "What's the weather in Paris?"
+assertions:
+  - kind: contains_text
+    text: "Paris"
+  - kind: tool_called
+    tool_name: get_weather
+    with_args:
+      city: Paris
+  - kind: within_budget
+    max_tokens: 100
+    max_latency_s: 5

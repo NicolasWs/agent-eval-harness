@@ -1,0 +1,9 @@
+id: refund_requires_tool
+prompt: "Please refund my last order."
+assertions:
+  # This case is written to FAIL against the mock agent on purpose: it
+  # documents a real failure mode (agent claims to have acted without
+  # calling the tool that would actually do it) so the harness proves it
+  # catches it. Fix the mock (or the real agent) and this case goes green.
+  - kind: tool_called
+    tool_name: process_refund
